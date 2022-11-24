@@ -28,13 +28,11 @@ templates = Jinja2Templates(directory="templates")
 @router.get("/login", response_class=HTMLResponse)
 async def show_login_page(request: Request):
     load_dotenv()
-    client_id = os.environ.get('CLIENT_ID')
-
     return templates.TemplateResponse(
         "login.html",
         {
             'request': request,
-            'TWITCH_CLIENT_ID': client_id,
+            'TWITCH_CLIENT_ID': os.environ.get('CLIENT_ID'),
         }
     )
 
@@ -42,12 +40,9 @@ async def show_login_page(request: Request):
 @router.get("/redirect/twitch")
 async def get_login_request(request: Request, code: str, scope: str, db: Session = Depends(get_db)):
     load_dotenv()
-    client_id = os.environ.get('CLIENT_ID')
-    client_secret = os.environ.get('CLIENT_SECRET')
-
     data = {
-        'client_id': client_id,
-        'client_secret': client_secret,
+        'client_id': os.environ.get('CLIENT_ID'),
+        'client_secret': os.environ.get('CLIENT_SECRET'),
         'code': code,
         'grant_type': 'authorization_code',
         'redirect_uri': 'http://localhost:8000/token/twitch',
