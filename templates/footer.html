@@ -1,0 +1,66 @@
+<hr class="content-margin" />
+<footer class="footer">
+    <div class="footer-logo">
+        <a href="login">
+            <img src="{{ url_for('static', path='/footer_logo.png') }}" alt="footer logo">
+        </a>
+    </div>
+    <div class="footer-content">
+        <div class="footer-link">
+        <a href="#">
+            커뮤니티 소개
+        </a>
+        <a href="#">
+            회사 소개
+        </a>
+        </div>
+        <div class="footer-info">
+        <span>사업자 김감자</span>
+        <span>주소:경기도 성남시 분당구 판교로 256번길 7</span>
+        <span>©2022 김감자</span>
+        </div>
+    </div>
+</footer>
+<style>
+.content-margin {
+    margin-top: 5rem;
+}
+.footer {
+    display: flex;
+    padding-top: 24px;
+    padding-bottom: 96px;
+}
+.footer-logo {
+    margin-right: 32px;
+}
+.footer-logo > a > img {
+    width: 80px;
+    height: 80px;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.footer-link {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    gap: 64px;
+}
+.footer-link > a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.footer-info {
+    display: flex;
+    gap: 32px;
+    font-size: 16px;
+}
+.footer-info > span {
+    display: block;
+}
+</style>

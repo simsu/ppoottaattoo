@@ -1,0 +1,5 @@
+sql_app/database.py
+.idea
+.env
+__pycache__
+database/__init__.py

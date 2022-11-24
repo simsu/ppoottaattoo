@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h3>login page</h3>
+<form>
+    <input name="id" placeholder="id" />
+    <input name="password" placeholder="password" />
+    or
+    <div>
+        <a href="https://id.twitch.tv/oauth2/authorize?client_id={{TWITCH_CLIENT_ID}}&redirect_uri=http://localhost:8000/redirect/twitch&response_type=code&scope=user:read:email">Connect with Twitch</a>
+    </div>
+</form>
+</body>
+</html>

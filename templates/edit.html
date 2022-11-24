@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src='/static/tinymce/js/tinymce/tinymce.min.js'></script>
+</head>
+<body>
+  <div class="first-div">
+    <form method="POST" action="/edit">
+      <div class="margin-top display-flex">
+        <label name="title">제목</label>  
+        <input name="title" class="full-width title-input" />
+      </div>
+      <div class="margin-top">
+        <textarea name="content">
+          Welcome to TinyMCE!
+        </textarea>
+      </div>
+      <button onclick="send_request()">submit</button>
+    </form>
+  </div>
+</body>
+{% block javascript %}
+  <script>
+      tinymce.init({
+          selector: 'textarea',
+          plugins: 'image',
+          toolbar: 'image',
+      });
+      function send_request() {
+          return true
+      }
+  </script>
+{% endblock %}
+</html>
+<style>
+.margin-top {
+  margin-top: 2rem;
+}
+.full-width {
+  width: 100%;
+}
+.display-flex {
+  display: flex;
+}
+.display-flex > :first-child {
+  flex-basis: 100px;
+}
+.display-flex > :last-child {
+  flex: 1;
+}
+.first-div {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.title-input {
+  border: 2px solid #eee;
+  border-radius: 3px;
+  padding: 1rem;
+}
+</style>

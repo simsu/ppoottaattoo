@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>애기뀨양</title>
+</head>
+</html>
+<body>
+    <div class="first-div">
+        <div class="menu-section">
+            <a href="/edit">
+                <h3>말하는 감자는 무엇을 먹고 사는가?</h3>
+            </a>
+            <a href="#">
+                <h3>말하는 감자는 무엇을 보고 사는가?</h3>
+            </a>
+            <a href="#">
+                <h3>말하는 감자는 무엇을 하며 사는가?</h3>
+            </a>
+        </div>
+        <div class="banner-div">
+            <img src={{banner}} />
+            <div class="banner-phrase darg-off">
+                <p>감자</p>
+                <p>감자</p>
+                <p>말하는 감자</p>
+            </div>
+        </div>
+        <table>
+            <p>갓 나온 감자들의 글</p>
+            <thead>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>날짜</th>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>
+                        {{ post.title }}
+                    </td>
+                    <td>
+                        {{ post.user.username }}
+                    </td>
+                    <td>
+                        {{ post.view_count }}
+                    </td>
+                    <td>
+                        {{ post.created }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>갓 나온 감자들의 사진</p>
+        <div class="potato-picture">
+        {% for picture in pictures %}
+        <div class="potato-picture-div">
+            <a href={{ picture.url }} target="_blank">
+                <img src={{ picture.url }} title={{ picture.title }} />
+            </a>
+        </div>
+        {% endfor %}
+        </div>
+        <!-- inclue footer -->
+        {% include 'footer.html' %}
+    </div>
+</body>
+<style>
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.banner-div {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    margin: 1rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+.banner-div > img {
+    width: 100%;
+}
+.banner-phrase {
+    position: absolute;
+    top: 380px;
+    left: 100px;
+    text-align: left;
+}
+.banner-phrase > p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 1px -1px 3px rgba(0,0,0,0.2);
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.darg-off {
+    pointer-events: none;
+}
+.first-div {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.menu-section {
+    justify-content: space-between;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+.potato-picture {
+    display: flex;
+    gap: 3px;
+}
+.potato-picture-div {
+    width: 397.5px;
+    height: 280px;
+    text-align: center;
+    overflow: hidden;
+}
+.potato-picture-div > a > img {
+    width: 100%;
+}
+tr, td, th {
+    border: 1px solid black;
+}
+</style>
+<script>
+
+</script>
